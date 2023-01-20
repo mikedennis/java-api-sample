@@ -8,6 +8,12 @@ services:
       - '5432:5432'
     volumes:
       - db:/var/lib/postgresql/data
+  spring-app:
+    build: ./hibernate-demo
+    container_name: 'demo-spring-app'
+    restart: always
+    ports:
+      - '8080:8080'
       
 volumes:
   db:

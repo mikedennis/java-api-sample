@@ -11,6 +11,17 @@ To build/run:
 - Start JAVA API
     - Run HibernateDemoApplication.java
 
+To build/run the app on docker:
+- Start postgres container (need to split postgres docker up and app startup)
+- Build Maven with only the postgres docker container running
+    - ``` cd hibernate-demo && ./mvnw package ```
+- Build docker image of app (make sure you are in hibernate-demo folder)
+    - ``` docker build -t your-container-name . ```
+- First time run create the database
+    - ``` CREATE DATABASE hibernatedemo; ```
+- Start container(s)
+    - ``` docker-compose up ```
+
 Test:
 - API will be running at localhost:8080
   - Beers _RepositoryRestResource_ 
